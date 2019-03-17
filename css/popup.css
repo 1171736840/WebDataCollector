@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+body {
+	/*height: 400px;*/
+	width: 130px;
+}
+
+a {
+	display: block;
+	transition: all 400ms;
+	color: #252525;
+	padding: 4px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: #FFFFFF;
+	background-color: #3999FF;
+}
+
+img {
+	margin-right: 4px;
+	float: left;
+	width: 16px;
+	height: 16px;
+}
+
+a span{
+	float: right;
+	/*color: #38F;*/
+}
+

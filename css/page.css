@@ -1,0 +1,160 @@
+.a_box {
+	position: fixed;
+	z-index: 99;
+	left: 0px;
+	top: 30%;
+	width: 80px;
+	height: 90px;
+	background-color: #E8E7E3;
+}
+
+.a_menu {
+	width: 80px !important;
+	height: 45px;
+	color: #777777;
+	text-align: center;
+	line-height: 45px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+
+.a_menu:hover {
+	float: left;
+	color: #FFFFFF !important;
+	background-color: #3F3F3F;
+	cursor: pointer;
+}
+
+.myButton {
+	float: right;
+	display: block;
+	border-radius: 4px;
+	background: #FF6534;
+	font-size: 15px;
+	color: #FFFFFF;
+	margin: 2px;
+	padding: 4px;
+}
+
+.myButton:hover {
+	background: #FFB29A;
+	cursor: pointer;
+}
+.myButton:active{
+	background: #FFC8B9;
+	cursor: pointer;
+}
+
+/*cloudServer的样式*/
+.div{
+	background-color: #FFFFFF;
+	width: 400px;
+	border: #FF8C00 solid 1px;
+	border-top: none;
+}
+.ul{
+	padding-left: 0px;
+	list-style:none;
+	margin: 0px;
+}
+.li{
+	background-color: #FFFFFF;
+	border-top:  1px solid #FF8C00;
+}
+
+.li div{
+	color: #18C0DF;
+	padding: 4px;
+	max-height: 98px;
+	overflow: hidden;
+}
+.li div:hover{
+	color: #FFFFFF;
+	background-color: #18C0DF;
+	cursor:pointer;
+}
+.li div:active{
+	background-color: #0084BE;
+}
+.ul2{
+	padding-left: 30px;
+	background-color: #FFFFFF;
+	list-style: none;
+}
+.li2{
+	background-color: #FFFFFF;
+}
+.li2 div{
+	border-top:  1px solid #CCCCCC;
+	color: #646464;
+	background-color: #FFFFFF;
+
+}
+.li2 div:hover{
+	border-top:  1px solid #CCCCCC;
+	color: #646464;
+	background-color: #CCCCCC;
+	cursor:pointer;
+}
+.li2 div:active{
+	background-color: #BBBBBB;
+}
+
+/*百度贴吧我的回帖页面样式*/
+button.bdtb-eplies-collection{
+	float: right;
+	border:solid 1px #38F;
+	color: #38F;
+	background-color: #FFF;
+	background-image:none;/*替换百度自带的样式*/
+	border-radius:0;
+	padding: 0px 6px;
+	margin-right: 10px;
+	font-size: 14px;
+	
+}
+button.bdtb-eplies-collection:hover{
+	background-color: #38F;
+	color: #FFF;
+	cursor: pointer;
+}
+button.bdtb-eplies-collection:active{
+	background-color: #3075DC;
+}
+
+
+div.mask{
+	position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.38);
+    overflow: auto;
+    max-height: 500px;
+}
+div.mask div.page{
+	position: fixed;
+	width: 800px;
+	margin: 0 auto;
+ 	top: 50%;
+ 	left: 50%;
+ 	margin-left: -400px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+div.mask div.title{
+	text-align: center;
+    font-size: 28px;
+    color: #373D41;
+    padding-top: 0px;
+    padding-bottom: 18px;
+}
+div.mask div.bar{
+	height: 18px;
+    padding-top: 10px;
+    margin-right: -10px;
+}
+

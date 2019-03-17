@@ -1,0 +1,99 @@
+/* ----------------------------------- 表格 ----------------------------------- */
+
+table.dataintable {
+	border-collapse: collapse;
+	border: 1px solid #aaa;
+	width: 100%;
+}
+
+table.dataintable th {
+	vertical-align: baseline;
+	padding: 2px 0px 2px 0px;
+	background-color: #3F3F3F;
+	border: 1px solid #3F3F3F;
+	text-align: left;
+	color: #fff;
+	white-space: nowrap;
+	/*不换行,保持一行显示*/
+}
+
+table.dataintable td {
+	/*vertical-align: text-top;*/
+	padding: 2px 2px 2px 2px;
+	border: 1px solid #aaa;
+}
+
+table.dataintable td[break=true] {
+	/*需要换行的td*/
+	white-space: initial;
+	/*默认样式*/
+	word-break: break-all;
+	/*强制数字字母换行*/
+}
+
+table.dataintable tr {
+	white-space: nowrap;
+	/*不换行,保持一行显示*/
+	transition: all 400ms;
+}
+
+table.dataintable tr:hover {
+	background-color: #CCCCCC !important;
+}
+
+table.dataintable tr:nth-child(odd) {
+	background-color: #F5F5F5;
+}
+
+table.dataintable tr:nth-child(even) {
+	background-color: #fff;
+}
+
+table.dataintable pre {
+	width: auto;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+}
+
+table.dataintable p {
+	margin: 0 0 2px 0;
+}
+
+div#maincontent table.dataintable ul,
+div#maincontent table.dataintable li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+table.dataintable td em {
+	color: #0000ff;
+	font-weight: normal;
+}
+
+table.dataintable .table_value {
+	color: #0F93D2;
+}
+
+.no_wrap {
+	white-space: nowrap;
+}
+
+div#maincontent table.dataintable ul.listintable {
+	margin: 20px;
+	padding: 0;
+}
+
+div#maincontent table.dataintable ul.listintable li {
+	list-style-type: disc;
+}
+
+table.dataintable td.html5_new {
+	background: transparent url(/ui2017/table_bg_html5.png) top right no-repeat;
+}
+
+tr.notsupported {
+	color: #999999;
+}

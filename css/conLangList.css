@@ -1,0 +1,57 @@
+/*===============================常用语列表========================*/
+
+div.common-language-list{
+	overflow: auto;
+    height: 320px;
+    line-height: 21px;
+    border: 1px solid #FF8C00;
+}
+
+div.common-language-list-item{
+	font-size: 14px;
+	line-height: 19.6px;
+	border-bottom: 1px solid #FF8C00;
+}
+div.common-language-list-item:last-child{
+	/*border-bottom: none;*/
+}
+
+div.common-language-list-item div.title{
+	padding: 4px;
+	color: #18C0DF;
+	word-break: break-all;
+	transition: all 400ms;
+	cursor:pointer;
+}
+div.common-language-list-item div.title:hover{
+	color: #FFF;
+	background-color: #18C0DF;
+}
+div.common-language-list-item div.content{
+	padding: 4px;
+	margin-left: 30px;
+	color: #646464;
+	border-top: solid 1px #CCC;
+	word-break: break-all;
+	transition: all 400ms;
+	cursor:pointer;
+	overflow: hidden;
+	/*防止搜狗问问格式出错*/
+	width: auto;
+}
+
+div.common-language-list-item div.content:hover{
+	background-color: #CCC;
+	border-top:  1px solid #CCC;
+	color: #646464;
+}
+div.common-language-list-item div.title a{
+	color: #38F;
+	float: right;
+	margin-left: 10px;
+}
+div.common-language-list-item div.title a:hover{
+	color: #FFF;
+}
+
+/*===============================常用语列表结束========================*/

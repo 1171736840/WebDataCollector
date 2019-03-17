@@ -1,0 +1,96 @@
+{
+	"manifest_version": 2,
+	"name": "数据采集器3.1.0",
+	"description": "采集网页上的链接、标题、账号等信息并生成表格，目前支持百度贴吧、百度知道、360问答、搜狗问问、悟空问答、兴趣部落、赶集网、百姓网。作者:许言武  QQ：1171736840  QQ群：601308456 不定期在群内更新。未经作者授权禁止作为商业用途",
+	"version": "3.1.0",
+	"icons": {
+		"128": "ico.png"
+	},
+	"options_page": "options.html",
+	"browser_action": {
+		"default_title": "数据采集器3.1.0",
+		"default_icon": "ico.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"contextMenus",
+		"storage",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"http://tieba.baidu.com/p/*",
+		"http://tieba.baidu.com/i/i/my_reply*",
+		"http://zhidao.baidu.com/question/*",
+		"http://wenda.so.com/q/*",
+		"http://wenwen.sogou.com/question/*",
+		"http://buluo.qq.com/p/detail.html*",
+		"https://tieba.baidu.com/p/*",
+		"https://zhidao.baidu.com/question/*",
+		"https://wenda.so.com/q/*",
+		"https://tieba.baidu.com/i/i/my_reply*",
+		"https://wenwen.sogou.com/question/*",
+		"https://buluo.qq.com/p/detail.html*",
+		"https://www.wukong.com/question/*",
+		"http://www.wukong.com/question/*",
+		"https://www.wukong.com/answer/*",
+		"http://www.wukong.com/answer/*",
+		"https://www.wukong.com/search/?keyword=*",
+		"http://www.wukong.com/search/?keyword=*",
+		"http://tieba.baidu.com/f?*kw=*",
+		"https://tieba.baidu.com/f?*kw=*",
+		"http://*.baixing.com/*/a*.html*",
+		"http://*.ganji.com/*/*x.htm*"
+	],
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"http://tieba.baidu.com/p/*",
+				"http://zhidao.baidu.com/question/*",
+				"http://wenda.so.com/q/*",
+				"http://wenwen.sogou.com/question/*",
+				"http://buluo.qq.com/p/detail.html*",
+				"https://tieba.baidu.com/p/*",
+				"https://zhidao.baidu.com/question/*",
+				"https://wenda.so.com/q/*",
+				"https://wenwen.sogou.com/question/*",
+				"https://buluo.qq.com/p/detail.html*",
+				"https://www.wukong.com/question/*",
+				"http://www.wukong.com/question/*",
+				"https://www.wukong.com/answer/*",
+				"http://www.wukong.com/answer/*",
+				"https://www.wukong.com/search/?keyword=*",
+				"http://www.wukong.com/search/?keyword=*",
+				"http://tieba.baidu.com/f?*kw=*",
+				"https://tieba.baidu.com/f?*kw=*",
+				"http://tieba.baidu.com/i/i/my_reply*",
+				"https://tieba.baidu.com/i/i/my_reply*",
+				"http://*.baixing.com/*/a*.html*",
+				"http://*.ganji.com/*/*x.htm*"
+			],
+			"js": [
+				"js/jquery.js",
+				"js/dataCenter.js",
+				"js/content.js"
+			]
+		}
+	],
+	"web_accessible_resources": [
+		"js/jquery.js",
+		"js/wuKongQuestionList.js",
+		"js/collection.js",
+		"js/pageCenter.js",
+		"js/base64.js",
+		"js/bdtbReplies.js",
+		"js/bdtbTails.js",
+		"js/tools.js",
+		"js/comLang.js",
+		"css/page.css",
+		"css/table.css",
+		"css/conLangList.css"
+	]
+}

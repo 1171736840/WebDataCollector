@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/options.css" type="text/css" />
+	<link rel="stylesheet" href="css/table.css" />
+	<link rel="stylesheet" href="css/conLangList.css" />
+	<script src="js/jquery.js" ></script>
+	<script src="js/dataCenter.js" ></script>
+	<script src="js/tools.js"></script>
+	<script src="js/setting.js" ></script>
+	<script src="js/options.js" ></script>
+	<title>所有数据-数据采集器</title>
+</head>
+<body>
+	<table id="databaseHead" class="dataintable" style="position:fixed;">
+		<tr>
+			<th>排序</th><th>日期</th><th>关键字</th><th>平台（吧名）</th>
+			<th>账号</th><th>链接</th><th>提问/回答(回复数)</th><th>备注（提问内容）</th>
+		</tr>
+	</table>
+	<!--这个表格是用来当浮动表头的-->
+	<div id="div"></div>
+	<div><font size="4" color="red">作者：许言武（WGG）&nbsp;QQ：1171736840&nbsp;&nbsp;QQ群：601308456&nbsp;&nbsp;不定期在群内更新。未经作者授权禁止作为商业用途，使用中遇到问题请联系作者反馈</font> </div>
+	
+	<div class="storage-usage-page">
+		<progress id="storage-usage" value="0" max="100" ></progress>
+		<span id="storage-usage-info-percentage">0.00%</span>
+		<div class="storage-usage-info">本地存储使用情况</div>
+		<div class="storage-address"></div>
+	</div>
+	
+	<div class="nav" id="databasePage">
+		<div class="nav_2">
+			<div class="nav_menu" id="navigation" title="快速到达指定页面">导航</div>
+				<a href="http://zhidao.baidu.com/new" target="_blank"><div class="nav_menu" id="zdtw" title="百度知道提问">・知道提问</div></a>
+				<a href="https://zhidao.baidu.com/list" target="_blank"><div class="nav_menu" id="zdhd" title="百度知道回答">・知道回答</div></a>
+				<a href="http://wenda.so.com/home/ask" target="_blank"><div class="nav_menu" id="360tw" title="360问答提问">・360提问</div></a>
+				<a href="http://wenda.so.com/c/" target="_blank"><div class="nav_menu" id="360hd" title="360问答回答">・360回答</div></a>
+				<a href="http://wenwen.sogou.com/question/ask" target="_blank"><div class="nav_menu" id="sgtw" title="搜狗问问提问">・搜狗提问</div></a>
+				<a href="http://wenwen.sogou.com/cate/tag/" target="_blank"><div class="nav_menu" id="sghd" title="搜狗问问回答">・搜狗回答</div></a>
+				<a href="https://www.wukong.com/" target="_blank"><div class="nav_menu" id="wksy" title="悟空问答首页">・悟空首页</div></a>
+				<a href="https://tieba.baidu.com/" target="_blank"><div class="nav_menu" id="tbsy" title="百度贴吧首页">・贴吧首页</div></a>
+				<a href="https://buluo.qq.com/p/" target="_blank"><div class="nav_menu" id="blsy" title="兴趣部落发现部落">・发现部落</div></a>
+				<a href="http://www.ganji.com/pub/pub_select.php" target="_blank"><div class="nav_menu" id="gjw" title="赶集网">・赶集网</div></a>
+				<a href="http://baixing.com/fabu/" target="_blank"><div class="nav_menu" id="bxw" title="兴趣部落发现部落">・百姓网</div></a>
+			<div class="nav_menu" id="edit" title="编辑记录">编辑</div>
+				<div class="nav_menu" id="select" title="选择全部">・全选</div>
+				<div class="nav_menu" id="reverseSelection"  title="选中变为未选中，未选中变为选中">・反选</div>
+				<div class="nav_menu" id="toDay"  title="选中今日的记录">・今日</div>
+				<div class="nav_menu" id="past"  title="选中除今日之外的记录">・往日</div>
+				<div class="nav_menu" id="copy" title="复制选中内容到剪切板">・复制</div>
+				<div class="nav_menu" id="remove"  title="删除选中的记录">・删除</div>
+				<div class="nav_menu" id="empty"  title="清空全部记录">・清空</div>
+			<div class="nav_menu" id="setting" title="设置扩展">设置</div>
+			<div class="nav_menu" id="recyclebin" title="回收站">回收站</div>
+		</div>
+		
+	</div>
+	<div id="settingMask" class="mask" >
+		<div id="settingPage" >
+			<div id="settingPageTitle">
+				<span class="thisSettingSubTitle" id="collectionSetting">采集设置</span>
+				<span class="fgx">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<span class="settingSubTitle" id="generalSetting">通用设置</span>
+				<span class="fgx">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<span class="settingSubTitle" id="remoteStorageSetting">远程存储</span>
+				<span class="fgx">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<span class="settingSubTitle" id="commonLanguage">常用语</span>
+				<span class="fgx">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<span class="settingSubTitle" id="tails">小尾巴</span>
+			</div>
+			
+			<div class="boxTable" id = "generalSettingTable" style="display: none;">
+				<div class="settingTitle">回收站</div>
+				<div class="settingContent">
+					<input id="autoClear" type="checkbox"  />
+					<label for="autoClear">
+						自动清理<input id="autoClearAfterSize" type="text" />条以后的数据
+					</label>
+				</div>
+				<div class="settingTitle">采集成功后</div>
+				<div class="settingContent">
+					<input id="closePage" type="checkbox"  />
+					<label for="closePage">关闭页面</label>
+				</div>
+				<div class="settingTitle">调试模式</div>
+				<div class="settingContent">
+					<input id="outInfo" type="checkbox"  />
+					<label for="outInfo">在Console输出信息</label>
+				</div>
+				<div class="settingTitle">快捷键</div>
+				<div class="settingContent">
+					采集：<input id="cjKeyCode" type="text" style="width: 220px;" readonly="readonly" title="在此按下快捷键" />&nbsp;&nbsp;
+					查看：<input id="ckKeyCode" type="text" style="width: 220px;" readonly="readonly" title="在此按下快捷键" /> 
+				</div>
+				<div class="settingTitle">百度知道行家号</div>
+				<div class="settingContent">
+					<input id="bdzdBusiness" type="checkbox"  /> 
+					<label for="bdzdBusiness">行家号模式</label><br />
+					<span style="color: #FF0000;">开启后将以行家号模式回答任何问题，需要百度账号加入行家号，已打开的页面刷新后生效。</span>
+				</div>
+			</div>
+			<div class="boxTable" id = "collectionSettingTable">
+				<div class="settingTitle">百度知道</div>
+				<div class="settingContent">
+					关键字：<input id="bdzdKey" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					提问/回答：<select id="bdzdQa">
+								<option value="提问">提问</option>
+								<option value="回答">回答</option>
+							</select>&nbsp;&nbsp;
+					
+				</div>
+				
+				<div class="settingTitle">360问答</div>
+				<div class="settingContent">
+					关键字：<input id="wd360Key" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					提问/回答：<select id="wd360Qa">
+								<option value="提问">提问</option>
+								<option value="回答">回答</option>
+							</select>&nbsp;&nbsp;
+					
+				</div>
+				
+				<div class="settingTitle">搜狗问问</div>
+				<div class="settingContent">
+					关键字：<input id="sgwwKey" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					提问/回答：<select id="sgwwQa">
+								<option value="提问">提问</option>
+								<option value="回答">回答</option>
+						</select>&nbsp;&nbsp;
+				</div>
+				
+				<div class="settingTitle">悟空问答</div>
+				<div class="settingContent">
+					关键字：<input id="wkwdKey" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					提问/回答：<select id="wkwdQa">
+								<option value="提问">提问</option>
+								<option value="回答">回答</option>
+						</select>&nbsp;&nbsp;
+				</div>
+				
+				<div class="settingTitle">百度贴吧</div>
+				<div class="settingContent">
+					关键字：<input id="bdtbKey" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					采集时间：<select id="bdtbDate">
+								<option value="帖子时间">帖子时间</option>
+								<option value="系统时间">系统时间</option>
+							</select>&nbsp;&nbsp;
+					平台显示：<select id="bdtbPlatformName">
+								<option value="贴吧名">贴吧名</option>
+								<option value="平台名">平台名</option>
+							</select>&nbsp;&nbsp;
+					采集账号：<select id="bdtbName">
+								<option value="楼主账号">楼主账号</option>
+								<option value="登录账号">登录账号</option>
+							</select>
+				</div>
+				
+				<div class="settingTitle">兴趣部落</div>
+				<div class="settingContent">
+					关键字：<input id="xqblKey" type="text"  value="安徽新华"/>&nbsp;&nbsp;
+					采集时间：<select id="xqblDate">
+								<option value="话题时间">话题时间</option>
+								<option value="系统时间">系统时间</option>
+							</select>&nbsp;&nbsp;
+					平台显示：<select id="xqblPlatformName">
+								<option value="部落名">部落名</option>
+								<option value="平台名">平台名</option>
+							</select>&nbsp;&nbsp;
+					采集账号：<select id="xqblName">
+								<option value="楼主账号">楼主账号</option>
+								<option value="登录账号">登录账号</option>
+							</select>
+				</div>
+			</div>	
+			
+			<div class="boxTable" id = "tailsTable"  style="display: none;"><!--小尾巴设置界面-->
+				<div class="settingTitle">百度贴吧</div>
+				<div class="settingContent">
+					小尾巴内容：<input id="bdtbTails" type="text"  style="width: 530px;"  /> 
+				</div>
+			</div>
+			
+			<div class="boxTable" id = "remoteStorageSettingTable"  style="display: none;"><!--小尾巴设置界面-->
+				<div class="settingTitle">远程存储设置</div>
+				<div class="settingContent">
+					<input id="remoteStorage" type="checkbox"  />
+					<label for="remoteStorage">开始远程存储</label><br />
+					远程存储地址：<input id="remoteStorageAddress" type="text"  style="width: 330px;"  /><br />
+					<span style="color: #F00;">开启远程存储后除了设置以外的数据全部保存在指定服务器中，若服务器不可用则采集器无法正常工作。
+						<br>多个采集器设置同一个远程存储地址即可共享除设置外的所有数据。
+					</span>
+				</div>
+			</div>
+			
+			<div class="boxTable" id = "commonLanguageTable"  style="display: none;"><!--常用语设置界面-->
+				<div class="settingTitle">常用语设置</div>
+				<div class="settingContent">
+					<input id="enableCommonLanguage" type="checkbox"  />
+					<label for="enableCommonLanguage">启用常用语</label>
+					<button  id="showCommonLanguagePageButton" style="float: right;">添加常用语</button>
+				</div>
+				<div class="settingTitle">管理常用语</div>
+				<div class="settingContent" style="padding: 0;">
+					<!--创建一个隐藏的编辑框用来保存读取数据-->
+					<input id="comLang" type="text"  style="display: none;"  />
+					<div class="common-language-list">
+					</div>
+				</div>
+				
+			</div>
+			
+			<div id="divButton">
+				<button  id="settingImport" title="从json文本中读取设置">导入设置</button>&nbsp;&nbsp;
+				<button  id="settingExport" title="将当前设置转换为json文本并保存在剪切板中">导出设置</button>&nbsp;&nbsp;
+				<button  id="settingDefault" title="将所有设置还原成默认设置">还原默认</button>&nbsp;&nbsp;
+				<button  id="settingSave" title="保存当前的设置内容">保存修改</button>
+			</div>
+		</div>
+		
+		<div class="mask" id="addComLangMask">
+			<div id="addComLangPage" data-id="">
+				<div class="addComLangPageTitle">添加常用语</div>
+				<div class="addComLangPageContent" name="addComLangContent" >
+					关键字：<input id="AddComLangKey" type="text" placeholder="多个关键字用空格分隔，支持正则表达式。" /><br />
+					<textarea id="AddComLangValue" placeholder="在此输入提示语，多个提示语之间请点击下方按钮插入分隔符。"></textarea><br />
+					<div class="addcomLangPageContentBar">
+						<button id="addTabByComLangValue">插入分隔符</button>&nbsp;&nbsp;
+						<button id="ComLangButtom">保存常用语</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id="recyclebinPage"><!--回收站页面-->
+		<table id="recyclebinHead" class="dataintable" style="position:fixed;">
+			<tr>
+				<th>选择</th><th>序号</th><th>日期</th><th>关键字</th><th>平台（吧名）</th>
+				<th>账号</th><th>链接</th><th>提问/回答(回复数)</th><th>备注（提问内容）</th>
+			</tr>
+		</table>
+		<!--这个表格是用来当浮动表头的-->
+		<div id="recyclebinTable"></div>
+		<div class="nav">
+			<div class="nav_2">
+				<div class="nav_menu" id="reduction" title="从回收站中还原记录">还原</div>
+				<div class="nav_menu" id="removeRecyclebin" title="删除选中数据">删除</div>
+				<div class="nav_menu" id="emptyRecyclebin" title="清空回收站">清空</div>
+				<div class="nav_menu" id="recyclebinClose" title="关闭回收站">关闭</div>
+			</div>
+			
+		</div>
+		<div style="height: 45px"></div>
+	</div>
+	
+	
+
+
+
+
+</body>
+</html>
